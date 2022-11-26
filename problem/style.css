@@ -1,0 +1,116 @@
+*{
+  font-family: "Poppins";
+  color: #1D3D52;
+  font-weight: 600;
+}
+
+.problem-statement{
+  padding: 2rem ;
+}
+
+.problem{
+
+  margin-top: 15px;
+}
+
+.stats{
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 45px;
+  margin: 0;
+}
+
+.explain{
+  font-size: 1.25rem;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.explain span{
+  font-size: 0.6rem;
+}
+
+.stats span{
+  font-size: 1.2rem;
+}
+
+h3{
+  padding: 10px 20px;
+  background-color: #1D3D52;
+  width: fit-content;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.stakeholder{
+  font-size: 1rem;
+}
+
+.stakeholder h4{
+  color: #1D3D52;
+  font-size: 1rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.stakeholder li:first-child{
+  margin-top: 10px;
+}
+
+.stakeholder li{
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+
+.stakeholder p{
+  color: #1D3D52;
+  border: 2px solid #1D3D52;
+  padding: 2px 5px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.poc{
+  background-color: #1D3D52;
+  height: fit-content;
+  padding: 10px;
+}
+
+.poc h4{
+  background-color: #f5f5f5;
+  width: fit-content;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1rem;
+  padding: 5px 10px;
+}
+
+.poc .reference{
+  display: flex;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  border: 2px solid #555;
+}
+
+.poc .reference:last-child{
+  border-bottom: none;
+}
+
+.poc .reference h4{
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+.poc .arrow-right{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
+
+.error{
+  height: 50vh;
+  margin-top: 22vh;
+  margin-bottom: 22vh;
+  color: #1D3D52;
+}
