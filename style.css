@@ -1,0 +1,96 @@
+*{
+  font-family: "Poppins";
+  
+}
+
+body{
+  overflow-x: hidden;
+}
+
+.front{
+  background-color: #1D3D52;
+  height: 42vh;
+  color: #f5f5f5;
+}
+
+.front::after{
+  content: "SEA";
+  position: absolute;
+  opacity: 0.05;
+  font-size: 32vh;
+  width: 100%;
+  top: 5vh;
+  text-align: center;
+  font-weight: 900;
+  z-index: 2;
+}
+
+.logo img{
+  width: 40%;
+  max-width: 200px;
+  max-height: 80px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.tower{
+  width: 55%;
+  max-width: 200px;
+  z-index: 3;
+}
+
+.wave{
+  background-color: #1D3D52;
+  background-image: url("wave-01.png");
+  width: 100vw;
+  height: 10vh;
+  background-size: cover;
+  border: none;
+}
+
+.info-box{
+  text-align: center;
+}
+.info-box h1{
+  padding: 10px 30px;
+  background-color: #1D3D52;
+  width: 250px;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+.info-box .d-flex{
+  margin-top: 20px;
+}
+.info-box h3{
+  color: #1D3D52;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+.nav-link .active{
+  color: #2e2e2e;
+}
+
+@media screen and (min-width: 1024px) {
+  .front::after{
+    opacity: 0 !important;
+  }
+  .tower{
+    max-width: 350px;
+    width: 25%;
+  }
+}
+
+@media screen and (min-height: 600px){
+  body{
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 1400px){
+  .wave{
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+}

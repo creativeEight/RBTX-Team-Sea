@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RBTX IOT</title>
+    <link rel="shortcut icon" href="icon-blue.png" type="image/x-icon" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+  <body>
+    <!-- <table class="table table-bordered">
+      <tr>
+        <th>No</th>
+        <th>Date</th>
+        <th>Water Level</th>
+        <th>pH</th>
+      </tr>
+    </table> -->
+    <div class="container-fluid">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img
+              src="../icon-blue.png"
+              alt=""
+              width="30"
+              height="30"
+              class="d-inline-block align-text-top"
+            />
+            TEAM SEA: Graph Analysis
+          </a>
+        </div>
+      </nav>
+      <div class="row">
+        <div class="col-1"></div>
+        <div class="col-6">
+          <canvas id="myChart" style="width: 90%; height: 40vh"></canvas>
+          <canvas id="Chart" style="width: 90%; height: 40vh"></canvas>
+        </div>
+        <div class="col-4">
+          <table class="table table-bordered">
+            <tr>
+              <th>No</th>
+              <th>Date</th>
+              <th>Water Level</th>
+              <th>pH</th>
+            </tr>
+          </table>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+    <script>
+      // LESSON 1
+      let wl = [70, 73, 77, 82, 86, 88, 91, 93, 96, 98, 100, 100];
+      let ph = [6, 6.3, 6.5, 6.8, 7.2, 7.3, 7.5, 7.75, 7.9, 8.0, 8.2, 8.4];
+
+      // for (i = 0; i < ph.length; i++) {
+      //   //create a row of cells
+      //   let tbody = document.querySelector("tbody");
+      //   let tr = document.createElement("tr");
+      //   let td = document.createElement("td");
+      //   tr.append(td);
+      //   tbody.append(tr);
+      //   td.innerHTML = (i + 1).toString(); //index
+      //   td = document.createElement("td");
+      //   tr.append(td);
+      //   td.innerHTML = new Date().toLocaleTimeString();
+      //   td = document.createElement("td");
+      //   tr.append(td);
+      //   td.innerHTML = wl[i];
+      //   td = document.createElement("td");
+      //   tr.append(td);
+      //   td.innerHTML = ph[i];
+      //   console.log("1");
+      // }
+
+      var arr = [];
+      var arr2 = [];
+      var time = [];
+      let i = 0;
+      function pushArray(i) {
+        arr.push(wl[i]);
+        arr2.push(ph[i]);
+        let tbody = document.querySelector("tbody");
+        let tr = document.createElement("tr");
+        let td = document.createElement("td");
+        tr.append(td);
+        tbody.append(tr);
+        td.innerHTML = (i + 1).toString(); //index
+        td = document.createElement("td");
+        tr.append(td);
+        td.innerHTML = new Date().toLocaleTimeString();
+        td = document.createElement("td");
+        tr.append(td);
+        td.innerHTML = wl[i];
+        td = document.createElement("td");
+        tr.append(td);
+        td.innerHTML = ph[i];
+        console.log("1");
+        time.push(new Date().toLocaleTimeString());
+
+        new Chart("myChart", {
+          type: "line",
+          data: {
+            labels: time,
+            datasets: [
+              {
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "blue",
+                borderColor: "blue",
+                data: arr,
+              },
+            ],
+          },
+          options: {
+            title: {
+              display: true,
+              text: "Water Level vs Time",
+            },
+            legend: { display: false },
+            scales: {
+              xAxes: [
+                {
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Time",
+                  },
+                },
+              ],
+              yAxes: [
+                {
+                  display: true,
+                  //type: 'logarithmic',
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Water Level",
+                  },
+                  ticks: { min: 50, max: 100 },
+                },
+              ],
+            },
+          },
+        });
+        new Chart("Chart", {
+          type: "line",
+          data: {
+            labels: time,
+            datasets: [
+              {
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "red",
+                borderColor: "red",
+                data: arr2,
+              },
+            ],
+          },
+          options: {
+            title: {
+              display: true,
+              text: "pH Value vs Time",
+            },
+            legend: { display: false },
+            scales: {
+              xAxes: [
+                {
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Time",
+                  },
+                },
+              ],
+              yAxes: [
+                {
+                  display: true,
+                  //type: 'logarithmic',
+                  scaleLabel: {
+                    display: true,
+                    labelString: "pH Value",
+                  },
+                  ticks: {
+                    min: 5,
+                    max: 10,
+                  },
+                },
+              ],
+            },
+          },
+        });
+      }
+
+      let automate = setInterval(function () {
+        pushArray(i);
+        i++;
+      }, 1000);
+
+      setTimeout(function () {
+        clearInterval(automate);
+      }, wl.length * 1000);
+
+      console.log(arr);
+      console.log(arr2);
+    </script>
+  </body>
+</html>
